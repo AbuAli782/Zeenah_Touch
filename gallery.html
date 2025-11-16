@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>المعرض | زينه تاتش – Zena Touch</title>
+  <link rel="icon" href="images/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{const t=localStorage.getItem('zt_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="images/logo.png" alt="Zena Touch" width="36" height="36" onerror="this.style.display='none'">
+        <span class="fw-bold"><span class="text-gold">Zena</span> Touch</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">الخدمات</a></li>
+          <li class="nav-item"><a class="nav-link active" href="gallery.html">المعرض</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">من نحن</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">تواصل</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <a class="btn btn-sm btn-outline-gold" href="admin-login.html"><i class="fa-solid fa-user-lock ms-1"></i> دخول الأدمن</a>
+          <div class="form-check form-switch text-light m-0">
+            <input class="form-check-input" type="checkbox" role="switch" id="themeToggle">
+            <label class="form-check-label" for="themeToggle"><i class="fa-solid fa-moon"></i></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <header class="hero-section d-flex align-items-center justify-content-center text-center" style="min-height:45vh;background-image:linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.6)), url('images/hero.jpg');">
+    <div class="container" data-aos="fade-up">
+      <h1 class="display-6 fw-bold mb-2">معرض الأعمال</h1>
+      <p class="lead">باقة من المشاريع المنجزة ولمساتنا في منازل العملاء</p>
+    </div>
+  </header>
+
+  <!-- Featured carousel -->
+  <section class="section-padding bg-body">
+    <div class="container">
+      <div class="text-center mb-4" data-aos="fade-up">
+        <h2 class="section-title">أعمال مميزة</h2>
+      </div>
+      <div class="swiper gallery-swiper" data-aos="fade-up">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/gallery/g1.jpg" alt="g1"></div>
+          <div class="swiper-slide"><img src="images/gallery/g2.jpg" alt="g2"></div>
+          <div class="swiper-slide"><img src="images/gallery/g3.jpg" alt="g3"></div>
+          <div class="swiper-slide"><img src="images/gallery/g4.jpg" alt="g4"></div>
+          <div class="swiper-slide"><img src="images/gallery/g5.jpg" alt="g5"></div>
+          <div class="swiper-slide"><img src="images/gallery/g6.jpg" alt="g6"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos (from manifest) -->
+  <section class="section-padding bg-body">
+    <div class="container">
+      <div class="text-center mb-4" data-aos="fade-up">
+        <h2 class="section-title">فيديوهات</h2>
+      </div>
+      <div id="videoGrid" class="row g-3" data-aos="fade-up"></div>
+    </div>
+  </section>
+
+  <!-- Grid gallery with Lightbox -->
+  <section class="section-padding">
+    <div class="container">
+      <div id="galleryGrid" class="row g-3" data-aos="fade-up">
+        <!-- 12 items -->
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/gallery/g1.jpg" data-lightbox="zt-gallery" data-title="عمل 1" class="d-block rounded-4 overflow-hidden shadow-sm">
+            <img src="images/gallery/g1.jpg" class="w-100" alt="عمل 1">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/gallery/g2.jpg" data-lightbox="zt-gallery" data-title="عمل 2" class="d-block rounded-4 overflow-hidden shadow-sm">
+            <img src="images/gallery/g2.jpg" class="w-100" alt="عمل 2">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/gallery/g3.jpg" data-lightbox="zt-gallery" data-title="عمل 3" class="d-block rounded-4 overflow-hidden shadow-sm">
+            <img src="images/gallery/g3.jpg" class="w-100" alt="عمل 3">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/gallery/g4.jpg" data-lightbox="zt-gallery" data-title="عمل 4" class="d-block rounded-4 overflow-hidden shadow-sm">
+            <img src="images/gallery/g4.jpg" class="w-100" alt="عمل 4">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/gallery/g5.jpg" data-lightbox="zt-gallery" data-title="عمل 5" class="d-block rounded-4 overflow-hidden shadow-sm">
+            <img src="images/gallery/g5.jpg" class="w-100" alt="عمل 5">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/gallery/g6.jpg" data-lightbox="zt-gallery" data-title="عمل 6" class="d-block rounded-4 overflow-hidden shadow-sm">
+            <img src="images/gallery/g6.jpg" class="w-100" alt="عمل 6">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/gallery/g7.jpg" data-lightbox="zt-gallery" data-title="عمل 7" class="d-block rounded-4 overflow-hidden shadow-sm">
+            <img src="images/gallery/g7.jpg" class="w-100" alt="عمل 7">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/gallery/g8.jpg" data-lightbox="zt-gallery" data-title="عمل 8" class="d-block rounded-4 overflow-hidden shadow-sm">
+            <img src="images/gallery/g8.jpg" class="w-100" alt="عمل 8">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/projects/p1.jpg" data-lightbox="zt-gallery" data-title="مشروع 1" class="d-block rounded-4 overflow-hidden shadow-sm">
+            <img src="images/projects/p1.jpg" class="w-100" alt="مشروع 1">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/projects/p2.jpg" data-lightbox="zt-gallery" data-title="مشروع 2" class="d-block rounded-4 overflow-hidden shadow-sm">
+            <img src="images/projects/p2.jpg" class="w-100" alt="مشروع 2">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/projects/p3.jpg" data-lightbox="zt-gallery" data-title="مشروع 3" class="d-block rounded-4 overflow-hidden shadow-sm">
+            <img src="images/projects/p3.jpg" class="w-100" alt="مشروع 3">
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="images/projects/p4.jpg" data-lightbox="zt-gallery" data-title="مشروع 4" class="d-block rounded-4 overflow-hidden shadow-sm">
+            <img src="images/projects/p4.jpg" class="w-100" alt="مشروع 4">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer py-5 bg-dark text-light">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5 class="mb-3">زينه تاتش – Zena Touch</h5>
+          <p class="text-muted">لمسات فاخرة لمنزلك مع فريق محترف وخدمة موثوقة.</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-gold">روابط</h6>
+          <ul class="list-unstyled">
+            <li><a class="text-decoration-none text-light-50" href="services.html">الخدمات</a></li>
+            <li><a class="text-decoration-none text-light-50" href="gallery.html">المعرض</a></li>
+            <li><a class="text-decoration-none text-light-50" href="about.html">من نحن</a></li>
+            <li><a class="text-decoration-none text-light-50" href="contact.html">تواصل</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-gold">تواصل</h6>
+          <ul class="list-unstyled small">
+            <li><i class="fa-solid fa-phone ms-2 text-gold"></i> <a id="footerPhone" class="text-decoration-none text-light" href="tel:+966551234567">+966 55 123 4567</a></li>
+            <li><i class="fa-solid fa-location-dot ms-2 text-gold"></i> <span id="footerAddress">الرياض، المملكة العربية السعودية</span></li>
+            <li><i class="fa-brands fa-whatsapp ms-2 text-gold"></i> <a id="footerWhatsapp" class="text-decoration-none text-light" href="https://wa.me/966551234567" target="_blank">واتساب مباشر</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center pt-4 mt-4 border-top border-secondary">
+        <p class="m-0 small text-light-50">© <span id="year"></span> Zena Touch. جميع الحقوق محفوظة.</p>
+        <div class="d-flex gap-3">
+          <a href="#" class="text-light-50"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="text-light-50"><i class="fa-brands fa-snapchat"></i></a>
+          <a href="#" class="text-light-50"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating -->
+  <a href="https://wa.me/966551234567" target="_blank" class="whatsapp-float" aria-label="تواصل واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+  <!-- Call Now Floating -->
+  <a href="tel:+966551234567" class="call-float" aria-label="اتصل الآن"><i class="fa-solid fa-phone"></i></a>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
+  <script src="js/media-manifest.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

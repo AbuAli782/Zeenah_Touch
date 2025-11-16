@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تواصل معنا | زينه تاتش – Zena Touch</title>
+  <link rel="icon" href="images/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{const t=localStorage.getItem('zt_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="images/logo.png" alt="Zena Touch" width="36" height="36" onerror="this.style.display='none'">
+        <span class="fw-bold"><span class="text-gold">Zena</span> Touch</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">الخدمات</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">المعرض</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">من نحن</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">تواصل</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <a class="btn btn-sm btn-outline-gold" href="admin-login.html"><i class="fa-solid fa-user-lock ms-1"></i> دخول الأدمن</a>
+          <div class="form-check form-switch text-light m-0">
+            <input class="form-check-input" type="checkbox" role="switch" id="themeToggle">
+            <label class="form-check-label" for="themeToggle"><i class="fa-solid fa-moon"></i></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page header -->
+  <header class="hero-section d-flex align-items-center justify-content-center text-center" style="min-height:45vh;background-image:linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.6)), url('images/contact.jpg');">
+    <div class="container" data-aos="fade-up">
+      <h1 class="display-6 fw-bold mb-2">تواصل معنا</h1>
+      <p class="lead">يسعدنا تواصلك وسنعود إليك سريعًا</p>
+    </div>
+  </header>
+
+  <section class="section-padding bg-body">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5" data-aos="fade-up">
+          <div class="p-4 rounded-4 service-card">
+            <h5 class="fw-bold mb-3">نموذج التواصل</h5>
+            <form id="contactForm" data-parsley-validate>
+              <div class="mb-3">
+                <label class="form-label">الاسم الكامل</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                  <input type="text" class="form-control" name="name" required data-parsley-required-message="الاسم مطلوب">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">رقم الجوال</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                  <input type="tel" class="form-control" name="phone" required data-parsley-pattern="^\d{9,15}$" data-parsley-required-message="رقم الجوال مطلوب" data-parsley-pattern-message="الرجاء إدخال رقم صحيح بدون رموز">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">المدينة</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fa-solid fa-city"></i></span>
+                  <select class="form-select" name="city" required data-parsley-required-message="اختر المدينة">
+                    <option value="">— اختر المدينة —</option>
+                    <option>الرياض</option>
+                    <option>جدة</option>
+                    <option>الدمام</option>
+                    <option>مكة</option>
+                    <option>المدينة</option>
+                    <option>الخبر</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">الرسالة</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fa-solid fa-message"></i></span>
+                  <textarea class="form-control" name="message" rows="4" required data-parsley-required-message="الرسالة مطلوبة"></textarea>
+                </div>
+              </div>
+              <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-gold">إرسال</button>
+                <a href="https://wa.me/966551234567" target="_blank" class="btn btn-outline-gold"><i class="fa-brands fa-whatsapp ms-1"></i> واتساب مباشر</a>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+          <h5 class="fw-bold mb-3">موقعنا</h5>
+          <div class="map-wrapper">
+            <!-- Fallback Embed if no API Key -->
+            <iframe id="map-iframe" title="خريطة" src="https://www.google.com/maps?q=26.445771,50.1129382&z=17&output=embed" style="width:100%;height:360px;border:0"></iframe>
+          </div>
+          <ul class="list-unstyled mt-3 small contact-info">
+            <li><i class="fa-solid fa-phone ms-2 text-gold"></i> <a id="contactPhone" class="text-decoration-none" href="tel:+966551234567">+966 55 123 4567</a></li>
+            <li><i class="fa-solid fa-location-dot ms-2 text-gold"></i> <span id="contactAddress">الرياض، المملكة العربية السعودية</span></li>
+            <li><i class="fa-brands fa-whatsapp ms-2 text-gold"></i> <a id="contactWhatsapp" class="text-decoration-none" href="https://wa.me/966551234567" target="_blank">واتساب مباشر</a></li>
+          </ul>
+          <div class="d-flex gap-2 mt-2">
+            <a href="https://www.google.com/maps?q=26.445771,50.1129382" target="_blank" class="btn btn-sm btn-outline-gold"><i class="fa-solid fa-location-dot ms-1"></i> عرض الموقع على الخريطة</a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=26.445771,50.1129382" target="_blank" class="btn btn-sm btn-gold"><i class="fa-solid fa-route ms-1"></i> الاتجاهات</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer py-5 bg-dark text-light">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5 class="mb-3">زينه تاتش – Zena Touch</h5>
+          <p class="text-muted">لمسات فاخرة لمنزلك مع فريق محترف وخدمة موثوقة.</p>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-gold">روابط</h6>
+          <ul class="list-unstyled">
+            <li><a class="text-decoration-none text-light-50" href="services.html">الخدمات</a></li>
+            <li><a class="text-decoration-none text-light-50" href="gallery.html">المعرض</a></li>
+            <li><a class="text-decoration-none text-light-50" href="about.html">من نحن</a></li>
+            <li><a class="text-decoration-none text-light-50" href="contact.html">تواصل</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-gold">تواصل</h6>
+          <ul class="list-unstyled small">
+            <li><i class="fa-solid fa-phone ms-2 text-gold"></i> <a id="footerPhone" class="text-decoration-none text-light" href="tel:+966551234567">+966 55 123 4567</a></li>
+            <li><i class="fa-solid fa-location-dot ms-2 text-gold"></i> <span id="footerAddress">الرياض، المملكة العربية السعودية</span></li>
+            <li><i class="fa-brands fa-whatsapp ms-2 text-gold"></i> <a id="footerWhatsapp" class="text-decoration-none text-light" href="https://wa.me/966551234567" target="_blank">واتساب مباشر</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center pt-4 mt-4 border-top border-secondary">
+        <p class="m-0 small text-light-50">© <span id="year"></span> Zena Touch. جميع الحقوق محفوظة.</p>
+        <div class="d-flex gap-3">
+          <a href="#" class="text-light-50"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="text-light-50"><i class="fa-brands fa-snapchat"></i></a>
+          <a href="#" class="text-light-50"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating -->
+  <a href="https://wa.me/966551234567" target="_blank" class="whatsapp-float" aria-label="تواصل واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+  <!-- Call Now Floating -->
+  <a href="tel:+966551234567" class="call-float" aria-label="اتصل الآن"><i class="fa-solid fa-phone"></i></a>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.3/parsley.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.3/i18n/ar.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

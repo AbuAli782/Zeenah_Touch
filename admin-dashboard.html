@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>لوحة التحكم | زينه تاتش – Zena Touch</title>
+  <link rel="icon" href="images/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <style>
+    :root {
+      --admin-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --admin-card-bg: rgba(255, 255, 255, 0.95);
+      --admin-card-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+      --admin-gold: linear-gradient(45deg, #FFD700, #FFA500);
+      --admin-hover-shadow: 0 12px 40px rgba(31, 38, 135, 0.25);
+    }
+
+    [data-theme="dark"] {
+      --admin-card-bg: rgba(30, 30, 30, 0.95);
+      --admin-card-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      --admin-hover-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      font-family: 'Tajawal', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 20%, rgba(255, 165, 0, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 40% 40%, rgba(102, 126, 234, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .admin-header {
+      background: var(--admin-card-bg);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: var(--admin-card-shadow);
+      position: relative;
+      z-index: 10;
+      animation: slideDown 0.6s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .admin-brand {
+      font-size: 1.5rem;
+      font-weight: 800;
+      background: var(--admin-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+    }
+
+    .text-gold {
+      background: var(--admin-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    #adminDashboard {
+      position: relative;
+      z-index: 5;
+    }
+
+    .admin-card {
+      background: var(--admin-card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      box-shadow: var(--admin-card-shadow);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .admin-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: var(--admin-gold);
+      transition: left 0.5s ease;
+    }
+
+    .admin-card:hover::before {
+      left: 100%;
+    }
+
+    .admin-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--admin-hover-shadow);
+      border-color: rgba(255, 215, 0, 0.3);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .admin-card .fs-3 {
+      background: var(--admin-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
+    }
+
+    .btn-gold {
+      background: var(--admin-gold);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      padding: 10px 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-gold::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-gold:hover::before {
+      left: 100%;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+    }
+
+    .btn-outline-danger {
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-danger:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4);
+    }
+
+    .form-control, .form-select {
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus, .form-select:focus {
+      border-color: rgba(255, 215, 0, 0.5);
+      box-shadow: 0 0 0 0.25rem rgba(255, 215, 0, 0.25);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .table {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .table th {
+      background: rgba(255, 215, 0, 0.1);
+      border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+      font-weight: 600;
+    }
+
+    .table td {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-sm {
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-sm:hover {
+      transform: translateY(-1px);
+    }
+
+    .text-muted {
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+
+    h6 {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+    }
+
+    .form-label {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+    }
+
+    /* Floating animation for stats */
+    .admin-card .fs-3 {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* Stagger animation for cards */
+    .admin-card:nth-child(1) { animation-delay: 0.1s; }
+    .admin-card:nth-child(2) { animation-delay: 0.2s; }
+    .admin-card:nth-child(3) { animation-delay: 0.3s; }
+    .admin-card:nth-child(4) { animation-delay: 0.4s; }
+    .admin-card:nth-child(5) { animation-delay: 0.5s; }
+    .admin-card:nth-child(6) { animation-delay: 0.6s; }
+    .admin-card:nth-child(7) { animation-delay: 0.7s; }
+    .admin-card:nth-child(8) { animation-delay: 0.8s; }
+  </style>
+  <script>try{const t=localStorage.getItem('zt_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+  <header class="admin-header py-3 mb-4">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-2">
+        <img src="images/logo.png" alt="" width="36" height="36" onerror="this.style.display='none'">
+        <strong class="admin-brand"><span class="text-gold">Zena</span> Touch</strong>
+        <span class="text-muted">| لوحة التحكم</span>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <button id="logoutBtn" class="btn btn-outline-danger btn-sm"><i class="fa-solid fa-right-from-bracket ms-1"></i> خروج</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="adminDashboard" class="container pb-5">
+    <!-- Stats -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-lg-3">
+        <div class="admin-card p-3 text-center h-100">
+          <div class="text-muted">الطلبات</div>
+          <div class="fs-3 fw-bold" id="statOrders">0</div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="admin-card p-3 text-center h-100">
+          <div class="text-muted">العملاء</div>
+          <div class="fs-3 fw-bold" id="statClients">0</div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="admin-card p-3 text-center h-100">
+          <div class="text-muted">الخدمات</div>
+          <div class="fs-3 fw-bold" id="statServices">0</div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="admin-card p-3 text-center h-100">
+          <div class="text-muted">الصور</div>
+          <div class="fs-3 fw-bold" id="statGallery">0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Orders chart -->
+      <div class="col-lg-6">
+        <div class="admin-card p-3 h-100">
+          <h6 class="mb-3">إحصائيات الطلبات</h6>
+          <canvas id="ordersChart" height="180"></canvas>
+        </div>
+      </div>
+
+      <!-- Contact info -->
+      <div class="col-lg-6">
+        <div class="admin-card p-3 h-100">
+          <h6 class="mb-3">بيانات التواصل</h6>
+          <form id="contactInfoForm">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">الهاتف</label>
+                <input type="text" class="form-control" name="phone">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">المدينة</label>
+                <input type="text" class="form-control" name="city">
+              </div>
+              <div class="col-12">
+                <label class="form-label">العنوان</label>
+                <input type="text" class="form-control" name="address">
+              </div>
+              <div class="col-12">
+                <label class="form-label">واتساب (بدون +)</label>
+                <input type="text" class="form-control" name="whatsapp">
+              </div>
+            </div>
+            <button class="btn btn-gold mt-3" type="submit">حفظ</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Gallery management -->
+      <div class="col-12">
+        <div class="admin-card p-3">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h6 class="m-0">إدارة الصور (المعرض)</h6>
+          </div>
+          <form id="galleryForm" class="row g-2 align-items-end">
+            <div class="col-md-4">
+              <label class="form-label">عنوان الصورة</label>
+              <input type="text" class="form-control" name="gtitle" placeholder="مثال: ركن إضاءة">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">رابط الصورة (images/...)</label>
+              <input type="text" class="form-control" name="gimage" placeholder="images/gallery/g1.jpg">
+            </div>
+            <div class="col-md-2">
+              <button class="btn btn-gold w-100" type="submit">إضافة</button>
+            </div>
+          </form>
+          <div class="table-responsive mt-3">
+            <table class="table table-sm align-middle">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>صورة</th>
+                  <th>العنوان</th>
+                  <th class="text-end">إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="galleryList"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preset service images override -->
+      <div class="col-12">
+        <div class="admin-card p-3">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h6 class="m-0">تخصيص صور الخدمات الجاهزة</h6>
+          </div>
+          <form id="serviceImageForm" class="row g-2 align-items-end">
+            <div class="col-md-5">
+              <label class="form-label">عنوان الخدمة</label>
+              <select class="form-select" name="title"></select>
+            </div>
+            <div class="col-md-5">
+              <label class="form-label">رابط الصورة (images/...)</label>
+              <input type="text" class="form-control" name="image" placeholder="images/services/custom.jpg">
+            </div>
+            <div class="col-md-2">
+              <button class="btn btn-gold w-100" type="submit">حفظ</button>
+            </div>
+          </form>
+          <div class="table-responsive mt-3">
+            <table class="table table-sm align-middle">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>العنوان</th>
+                  <th>الصورة</th>
+                  <th class="text-end">إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="serviceImageList"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Services management -->
+      <div class="col-12">
+        <div class="admin-card p-3">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h6 class="m-0">إدارة الخدمات</h6>
+          </div>
+          <form id="servicesForm" class="row g-2 align-items-end">
+            <div class="col-md-3">
+              <label class="form-label">العنوان</label>
+              <input type="text" class="form-control" name="stitle" placeholder="مثال: إضاءة داخلية">
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">النوع</label>
+              <input type="text" class="form-control" name="scategory" placeholder="lighting/curtains/wallpaper/installation">
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">رابط الصورة (images/...)</label>
+              <input type="text" class="form-control" name="simage" placeholder="images/services/s1.jpg">
+            </div>
+            <div class="col-md-12">
+              <label class="form-label">الوصف</label>
+              <textarea class="form-control" rows="2" name="sdesc" placeholder="وصف مختصر"></textarea>
+            </div>
+            <div class="col-md-2">
+              <button class="btn btn-gold w-100" type="submit">إضافة</button>
+            </div>
+          </form>
+          <div class="table-responsive mt-3">
+            <table class="table table-sm align-middle">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>النوع</th>
+                  <th>العنوان</th>
+                  <th>الوصف</th>
+                  <th>صورة</th>
+                  <th class="text-end">إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="servicesList"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
