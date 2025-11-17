@@ -11,11 +11,29 @@
   const savedTheme = localStorage.getItem('zt_theme') || 'light';
   root.setAttribute('data-theme', savedTheme);
   const toggle = document.getElementById('themeToggle');
+  const lightIcon = document.querySelector('.theme-icon-light');
+  const darkIcon = document.querySelector('.theme-icon-dark');
+  
+  function updateThemeIcons(theme) {
+    if (lightIcon && darkIcon) {
+      if (theme === 'dark') {
+        lightIcon.style.display = 'none';
+        darkIcon.style.display = 'inline';
+      } else {
+        lightIcon.style.display = 'inline';
+        darkIcon.style.display = 'none';
+      }
+    }
+  }
+  
+  updateThemeIcons(savedTheme);
+  
   if (toggle) {
     toggle.checked = savedTheme === 'dark';
     toggle.addEventListener('change', () => {
       const t = toggle.checked ? 'dark' : 'light';
       root.setAttribute('data-theme', t);
+      updateThemeIcons(t);
       try { localStorage.setItem('zt_theme', t); } catch(e) {}
     });
   }
@@ -31,16 +49,18 @@
 
   // Curated services preset (Arabic)
   const PRESET_SERVICES = [
-    { title: 'تصميم وتركيب إضاءة المناسبات السعيدة', desc: '"حوّل مناسباتك الخاصة إلى ذكرى مضيئة لا تُنسى. فريقنا من الخبراء يصمم وينفذ إضاءة ساحرة تليق بأفراحكم، من حفلات الزفاف الأنيقة إلى التجمعات العائلية البهيجة. دع الأضواء تروي قصة سعادتكم."', category: 'lighting' },
-    { title: 'إضاءة الأعياد والمواسم (رمضان، العيد الوطني، رأس السنة)', desc: '"احتفل بروح الأعياد وأضف لمسة من البهجة على منزلك. نقدم تصاميم إضاءة مبتكرة ومخصصة لكل موسم، تعكس الأجواء الاحتفالية وتجعل منزلك محط الأنظار. استقبل ضيوفك بأجواء تفيض بالجمال والدفء."', category: 'lighting' },
-    { title: 'إبراز الجمال المعماري للواجهات', desc: '"لكل مبنى قصة فريدة، ودورنا هو أن نرويها بالضوء. من خلال تقنيات الإضاءة الحديثة، نبرز أدق تفاصيل واجهة منزلك أو مشروعك التجاري، لنمنحه هيبة وجمالاً يخطف الأبصار ليلاً ونهاراً."', category: 'lighting' },
-    { title: 'تصميم إضاءة الحدائق والمناظر الطبيعية', desc: '"اجعل حديقتك لوحة فنية تتألق في المساء. نقوم بتصميم أنظمة إضاءة متكاملة تبرز جمال الأشجار والنباتات، وتضيء الممرات بشكل آمن وأنيق. استمتع بأمسيات هادئة في واحتك الخارجية الخاصة."', category: 'lighting' },
-    { title: 'أنظمة الإضاءة الذكية والتحكم عن بعد', desc: '"تحكم بجمال منزلك بلمسة زر. نوفر أحدث حلول الإضاءة الذكية التي تتيح لك تغيير الألوان، شدة السطوع، والجداول الزمنية عبر هاتفك. اصنع الأجواء المثالية لكل لحظة بكل سهولة."', category: 'installation' },
-    { title: 'إضاءة المسابح والنوافير', desc: '"أضف بُعداً جديداً من السحر إلى مساحاتك المائية. نقدم حلول إضاءة آمنة ومقاومة للماء تحوّل مسبحك أو نافورتك إلى نقطة جذب بصرية مذهلة، وتخلق أجواء استرخاء فاخرة."', category: 'lighting' },
-    { title: 'خدمة الصيانة والفك والتخزين', desc: '"استمتع بالزينة دون عناء. بعد انتهاء مناسبتك، يتولى فريقنا فك الإضاءة بعناية وتغليفها وتخزينها بشكل احترافي للموسم القادم، لتبقى جديدة وجاهزة لإسعادك مرة أخرى."', category: 'installation' },
-    { title: 'استشارات تصميم الإضاءة الاحترافية', desc: '"هل لديك رؤية وتحتاج إلى خبير ليحققها؟ نقدم جلسات استشارية لمساعدتك على اختيار أفضل التصاميم والتقنيات التي تناسب مساحتك وميزانيتك، لنضمن لك نتيجة تفوق توقعاتك."', category: 'lighting' },
-    { title: 'تأجير معدات الإضاءة للمناسبات', desc: '"لإضاءة مبهرة بتكلفة أقل. إذا كنت تحتاج إلى إضاءة احترافية لمناسبة واحدة، فإن خدمة التأجير هي خيارك الأمثل. نوفر لك أحدث المعدات مع التركيب والفك لضمان راحتك."', category: 'lighting' },
-    { title: 'تنفيذ تصاميم وشعارات ضوئية خاصة', desc: '"حوّل فكرتك إلى واقع مضيء. سواء كان شعار شركتك، أو اسم العروسين، أو أي تصميم خاص، يمكننا تنفيذه باستخدام الأضواء لنضيف لمسة شخصية فريدة ومبهرة لمناسبتك أو مشروعك."', category: 'lighting' },
+    { title: 'تصميم وتركيب إضاءة المناسبات السعيدة', desc: 'حول مناسباتك الخاصة إلى لحظات تنبض بالضوء والفرح. فريقنا المتخصص يقدم لك تصاميم إضاءة مميزة تضفي لمسة ساحرة على كل احتفال، سواء كان زفافاً أنيقاً أو تجمعاً عائلياً مليئاً بالبهجة. دع أضواءنا تضيء طريق سعادتك وتخلّد أجمل الذكريات.', category: 'lighting' },
+    { title: 'إضاءة الأعياد والمواسم (رمضان، العيد الوطني، رأس السنة)', desc: 'عيش فرحة الأعياد وأضف لمسة من السعادة إلى بيتك. عندنا أشكال إضاءة جديدة تناسب كل موسم، تعكس جو الاحتفال وتخلي بيتك مميز ولافت للأنظار. خلّي ضيوفك يحسّوا بالراحة والجمال في كل زاوية.', category: 'lighting' },
+    { title: 'إبراز الجمال المعماري للواجهات', desc: 'كل مبنى يحمل قصة خاصة به، ونحن هنا لننسجها بأشعة الضوء. باستخدام أحدث تقنيات الإضاءة، نُظهر أجمل تفاصيل واجهة منزلك أو مكان عملك، لنمنحه رونقاً وجاذبية تسرق الأنظار في كل وقت، سواء في النهار أو الليل.', category: 'lighting' },
+    { title: 'تصميم إضاءة الحدائق والمناظر الطبيعية', desc: 'حوّل حديقتك إلى لوحة فنية تنبض بالحياة مع غروب الشمس. نعتني بتصميم إضاءات متكاملة تبرز جمال الأشجار والنباتات، وتضيء الممرات بأناقة وأمان. استرخِ واستمتع بأمسيات هادئة في ملاذك الخارجي الخاص.', category: 'lighting' },
+    { title: 'إضاءة المسابح والنوافير', desc: 'امنح مساحات المياه في منزلك لمسة ساحرة جديدة. نقدم لك إضاءات آمنة ومضادة للماء، تجعل من المسبح أو النافورة لديك مكانًا يلفت الأنظار بجماله، ويضفي جوًا هادئًا ومريحًا يملؤه الفخامة.', category: 'lighting' },
+    { title: 'خدمة الصيانة والفك والتخزين', desc: 'استمتع بجمال الزينة دون أي تعب. لما تخلص مناسبتك، فريقنا بيتكفل بفك الإضاءة بعناية، وبيرتبها ويخزنها بطريقة محترفة، عشان تظل جديدة وجاهزة تفرحك مرة ثانية في الموسم اللي جاي.', category: 'installation' },
+    { title: 'استشارات تصميم الإضاءة الاحترافية', desc: 'هل لديك فكرة تتمنى تحقيقها؟ نحن هنا لنساعدك بخبرتنا. نوفر لك جلسات استشارية تختار من خلالها أفضل التصاميم وأحدث التقنيات التي تناسب مكانك وميزانيتك، كي تحصل على نتائج تتجاوز كل توقعاتك.', category: 'lighting' },
+    { title: 'تأجير معدات الإضاءة للمناسبات', desc: 'إذا كنت تبحث عن إضاءة رائعة بتكلفة معقولة، فخدمة التأجير هي الحل المناسب لك، خاصة إذا كانت المناسبة لمرة واحدة فقط. نحن نوفر لك أحدث الأجهزة، ونتكفل بتركيبها وفكها، حتى تكون تجربتك سهلة ومريحة تماماً.', category: 'lighting' },
+    { title: 'تنفيذ تصاميم وشعارات ضوئية خاصة', desc: 'اجعل فكرتك تنبض بالحياة والضوء. سواء كنت ترغب في شعار شركتك، أو اسم العروسين، أو أي تصميم تحبه، نحن هنا لنحولها إلى حقيقة تتلألأ بالأضواء. نضيف لمسة خاصة تميز مناسبتك أو مشروعك بطريقة فريدة وجذابة.', category: 'lighting' },
+    { title: 'خدمات السباكة', desc: 'نوفر حلولاً سباكية شاملة تشمل التركيب والصيانة والإصلاح بأعلى معايير الجودة والاحترافية.', category: 'plumbing', icon: 'fa-wrench', isProfessional: true },
+    { title: 'خدمات الكهرباء الآمنة', desc: 'خدمات كهربائية متخصصة تضمن السلامة والكفاءة العالية مع الالتزام بجميع المعايير الدولية.', category: 'electrical', icon: 'fa-bolt', isProfessional: true },
+    { title: 'تصميم وتركيب الإضاءة', desc: 'تصاميم إضاءة مبتكرة تحول مساحاتك إلى بيئات جميلة وعملية مع أحدث التقنيات.', category: 'lighting', icon: 'fa-lightbulb', isProfessional: true },
   ];
 
   // Build a fixed mapping between service title and an image from manifest (first N images)
@@ -50,14 +70,7 @@
     PRESET_SERVICES.forEach((s, i)=>{ if (imgs[i]) map[s.title] = imgs[i]; });
     return map;
   }
-  // Get Admin override mapping if exists: { title: imageUrl }
-  function getAdminServiceImageMap(){
-    const m = getLS('zt_service_images', null);
-    return (m && typeof m === 'object') ? m : null;
-  }
   function getServiceImageFor(title, idx){
-    const admin = getAdminServiceImageMap();
-    if (admin && admin[title]) return admin[title];
     const fixed = buildFixedServiceImageMap();
     if (fixed[title]) return fixed[title];
     const imgs = getManifestImages();
@@ -75,12 +88,16 @@
   }
   function populateSwiperFromManifest(selector){
     const imgs = getManifestImages();
+    console.log('Images from manifest:', imgs.length, imgs);
     if (!imgs.length) return;
     const el = document.querySelector(selector);
+    console.log('Swiper element found:', !!el);
     if (!el) return;
     const wrapper = el.querySelector('.swiper-wrapper');
+    console.log('Swiper wrapper found:', !!wrapper);
     if (!wrapper) return;
     wrapper.innerHTML = imgs.map(src => `<div class="swiper-slide"><img src="${src}" alt="media"></div>`).join('');
+    console.log('Swiper populated with', imgs.length, 'images');
   }
 
   function initHeroVideo(){
@@ -122,119 +139,113 @@
     if (cad) cad.textContent = c.address || c.city || 'المملكة العربية السعودية';
   }
 
-  // Language handling
+  // Language handling (simplified - already RTL in HTML)
   function swapBootstrapForLang(lang){
-    const link = document.querySelector('link[rel="stylesheet"][href*="bootstrap"]');
-    if (!link) return;
-    const base = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/';
-    link.href = base + (lang === 'en' ? 'bootstrap.min.css' : 'bootstrap.rtl.min.css');
+    // Bootstrap RTL already loaded in HTML, no need to swap
   }
 
-  function applyTranslations(lang){
+  function applyTranslations(){
     const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-    const isEN = lang === 'en';
 
     // Navbar
-    const setText = (sel, ar, en) => {
+    const setText = (sel, ar) => {
       const el = document.querySelector(sel);
-      if (el) el.textContent = isEN ? en : ar;
+      if (el) el.textContent = ar;
     };
-    setText('a.nav-link[href$="index.html"]', 'الرئيسية', 'Home');
-    setText('a.nav-link[href$="services.html"]', 'الخدمات', 'Services');
-    setText('a.nav-link[href$="gallery.html"]', 'المعرض', 'Gallery');
-    setText('a.nav-link[href$="about.html"]', 'من نحن', 'About');
-    setText('a.nav-link[href$="contact.html"]', 'تواصل', 'Contact');
-    setText('a.btn[href$="admin-login.html"]', 'دخول الأدمن', 'Admin Login');
+    setText('a.nav-link[href$="index.html"]', 'الرئيسية');
+    setText('a.nav-link[href$="services.html"]', 'الخدمات');
+    setText('a.nav-link[href$="gallery.html"]', 'المعرض');
+    setText('a.nav-link[href$="about.html"]', 'من نحن');
+    setText('a.nav-link[href$="contact.html"]', 'تواصل');
 
     // Footer headings and rights
     const footerLinks = document.querySelector('footer .col-md-4:nth-child(2) h6');
-    if (footerLinks) footerLinks.textContent = isEN ? 'Links' : 'روابط';
+    if (footerLinks) footerLinks.textContent = 'روابط';
     const footerContact = document.querySelector('footer .col-md-4:nth-child(3) h6');
-    if (footerContact) footerContact.textContent = isEN ? 'Contact' : 'تواصل';
+    if (footerContact) footerContact.textContent = 'تواصل';
     const rights = document.querySelector('footer .border-top p');
     if (rights) {
       const y = new Date().getFullYear();
-      rights.textContent = isEN ? (`© ${y} Zena Touch. All rights reserved.`) : (`© ${y} Zena Touch. جميع الحقوق محفوظة.`);
+      rights.textContent = `© ${y} Zena Touch. جميع الحقوق محفوظة.`;
     }
     const waFooter = document.getElementById('footerWhatsapp');
-    if (waFooter) waFooter.textContent = isEN ? 'WhatsApp' : 'واتساب مباشر';
+    if (waFooter) waFooter.textContent = 'واتساب مباشر';
 
     // Common CTA section
     const ctaTitle = document.querySelector('.bg-gold h3');
-    if (ctaTitle) ctaTitle.textContent = isEN ? 'Got a project or idea? We are happy to help' : 'هل لديك مشروع أو فكرة؟ يسعدنا خدمتك';
+    if (ctaTitle) ctaTitle.textContent = 'هل لديك مشروع أو فكرة؟ يسعدنا خدمتك';
     const ctaQuoteBtn = document.querySelector('.bg-gold .btn.btn-dark');
-    if (ctaQuoteBtn) ctaQuoteBtn.textContent = isEN ? 'Request a Quote' : 'طلب عرض سعر';
+    if (ctaQuoteBtn) ctaQuoteBtn.textContent = 'طلب عرض سعر';
     const ctaWaBtn = document.querySelector('.bg-gold .btn.btn-outline-dark');
-    if (ctaWaBtn) ctaWaBtn.innerHTML = isEN ? '<i class="fa-brands fa-whatsapp ms-1"></i> WhatsApp' : '<i class="fa-brands fa-whatsapp ms-1"></i> واتساب';
+    if (ctaWaBtn) ctaWaBtn.innerHTML = '<i class="fa-brands fa-whatsapp ms-1"></i> واتساب';
 
     // Page-specific
     if (current === 'index.html'){
-      setText('.hero-section p.lead', 'خبراء زينة المنازل والإضاءة – جودة، ذوق، وتركيب احترافي.', 'Home decor and lighting experts – quality, taste, and professional installation.');
-      setText('#services .section-title', 'خدماتنا', 'Our Services');
-      const featuresTitle = document.querySelectorAll('.section-title');
+      setText('.hero-section p.lead', 'خبراء زينة المنازل والإضاءة – جودة، ذوق، وتركيب احترافي.');
+      setText('#services .section-title', 'خدماتنا');
+      setText('#services .text-muted', 'نقدم حلولاً متكاملة لزينة المنازل والإضاءة بجودة عالية.');
       // first is services, next could be Why us / About; safer by section content
       const whyH2 = document.querySelectorAll('.section-title')[1];
-      if (whyH2) whyH2.textContent = isEN ? 'Why choose us?' : 'لماذا تختارنا؟';
+      if (whyH2) whyH2.textContent = 'لماذا تختارنا؟';
       const aboutH2 = document.querySelectorAll('.section-title')[2];
-      if (aboutH2) aboutH2.textContent = isEN ? 'About Us' : 'من نحن';
-      setText('.section-padding.bg-body .text-muted', 'لمساتنا الراقية في منازل عملائنا.', 'Our refined touches in our clients’ homes.');
+      if (aboutH2) aboutH2.textContent = 'من نحن';
+      setText('.section-padding.bg-body .text-muted', 'لمساتنا الراقية في منازل عملائنا.');
       // Services cards
       const cards = document.querySelectorAll('.feature-card .card-title');
-      if (cards[0]) cards[0].textContent = isEN ? 'Indoor and Outdoor Lighting' : 'إضاءة داخلية وخارجية';
-      if (cards[1]) cards[1].textContent = isEN ? 'Curtains and Furnishings' : 'ستائر ومفروشات';
-      if (cards[2]) cards[2].textContent = isEN ? 'Wallpaper' : 'ورق جدران';
-      if (cards[3]) cards[3].textContent = isEN ? 'Installation & Maintenance' : 'تركيب وصيانة';
+      if (cards[0]) cards[0].textContent = 'إضاءة داخلية وخارجية';
+      if (cards[1]) cards[1].textContent = 'ستائر ومفروشات';
+      if (cards[2]) cards[2].textContent = 'ورق جدران';
+      if (cards[3]) cards[3].textContent = 'تركيب وصيانة';
     }
     if (current === 'services.html'){
-      setText('.hero-section h1', 'خدماتنا', 'Our Services');
-      setText('.hero-section .lead', 'حلول متكاملة لزينة المنازل والإضاءة باحترافية عالية', 'Complete home decor and lighting solutions with high professionalism');
-      setText('[data-filter="all"]', 'الكل', 'All');
-      setText('[data-filter="lighting"]', 'إضاءة', 'Lighting');
-      setText('[data-filter="curtains"]', 'ستائر', 'Curtains');
-      setText('[data-filter="wallpaper"]', 'ورق جدران', 'Wallpaper');
-      setText('[data-filter="installation"]', 'تركيب وصيانة', 'Installation');
-      document.querySelectorAll('#servicesGrid .btn.btn-gold').forEach(btn=> btn.textContent = isEN ? 'Contact' : 'تواصل');
+      setText('.hero-section h1', 'خدماتنا');
+      setText('.hero-section .lead', 'حلول متكاملة لزينة المنازل والإضاءة باحترافية عالية');
+      setText('[data-filter="all"]', 'الكل');
+      setText('[data-filter="lighting"]', 'إضاءة');
+      setText('[data-filter="curtains"]', 'ستائر');
+      setText('[data-filter="wallpaper"]', 'ورق جدران');
+      setText('[data-filter="installation"]', 'تركيب وصيانة');
+      document.querySelectorAll('#servicesGrid .btn.btn-gold').forEach(btn=> btn.textContent = 'تواصل');
     }
     if (current === 'gallery.html'){
-      setText('.hero-section h1', 'معرض الأعمال', 'Portfolio');
-      setText('.section-padding.bg-body .section-title', 'أعمال مميزة', 'Featured Works');
+      setText('.hero-section h1', 'معرض الأعمال');
+      setText('.section-padding.bg-body .section-title', 'أعمال مميزة');
     }
     if (current === 'about.html'){
-      setText('.hero-section h1', 'من نحن', 'About Us');
-      setText('.hero-section .lead', 'رؤية واضحة لتجميل بيتك بلمسات ذهبية', 'A clear vision to beautify your home with golden touches');
+      setText('.hero-section h1', 'من نحن');
+      setText('.hero-section .lead', 'رؤية واضحة لتجميل بيتك بلمسات ذهبية');
       const story = document.querySelector('.section-title');
-      if (story) story.textContent = isEN ? 'Our Story' : 'قصتنا';
+      if (story) story.textContent = 'قصتنا';
       const boxes = document.querySelectorAll('.about-stats h5');
-      if (boxes[0]) boxes[0].textContent = isEN ? 'Our Vision' : 'رؤيتنا';
-      if (boxes[1]) boxes[1].textContent = isEN ? 'Our Mission' : 'رسالتنا';
-      if (boxes[2]) boxes[2].textContent = isEN ? 'Our Values' : 'قيمنا';
+      if (boxes[0]) boxes[0].textContent = 'رؤيتنا';
+      if (boxes[1]) boxes[1].textContent = 'رسالتنا';
+      if (boxes[2]) boxes[2].textContent = 'قيمنا';
     }
     if (current === 'contact.html'){
-      setText('.hero-section h1', 'تواصل معنا', 'Contact Us');
-      setText('.hero-section .lead', 'يسعدنا تواصلك وسنعود إليك سريعًا', 'We are happy to hear from you and will get back soon');
-      setText('.service-card h5', 'نموذج التواصل', 'Contact Form');
+      setText('.hero-section h1', 'تواصل معنا');
+      setText('.hero-section .lead', 'يسعدنا تواصلك وسنعود إليك سريعًا');
+      setText('.service-card h5', 'نموذج التواصل');
       // Labels
       const labels = document.querySelectorAll('#contactForm .form-label');
-      if (labels[0]) labels[0].textContent = isEN ? 'Full Name' : 'الاسم الكامل';
-      if (labels[1]) labels[1].textContent = isEN ? 'Phone' : 'رقم الجوال';
-      if (labels[2]) labels[2].textContent = isEN ? 'City' : 'المدينة';
-      if (labels[3]) labels[3].textContent = isEN ? 'Message' : 'الرسالة';
+      if (labels[0]) labels[0].textContent = 'الاسم الكامل';
+      if (labels[1]) labels[1].textContent = 'رقم الجوال';
+      if (labels[2]) labels[2].textContent = 'المدينة';
+      if (labels[3]) labels[3].textContent = 'الرسالة';
       const submit = document.querySelector('#contactForm button[type="submit"]');
-      if (submit) submit.textContent = isEN ? 'Send' : 'إرسال';
+      if (submit) submit.textContent = 'إرسال';
       const locHeading = document.querySelector('.map-wrapper')?.previousElementSibling;
       if (locHeading && locHeading.tagName === 'H5') {
-        locHeading.textContent = isEN ? 'Our Location' : 'موقعنا';
+        locHeading.textContent = 'موقعنا';
       }
     }
   }
 
-  function applyLang(lang){
+  function applyLang(){
     const html = document.documentElement;
-    html.setAttribute('lang', lang);
-    html.setAttribute('dir', lang === 'en' ? 'ltr' : 'rtl');
-    swapBootstrapForLang(lang);
-    try { localStorage.setItem('zt_lang', lang); } catch(e){}
-    applyTranslations(lang);
+    html.setAttribute('lang', 'ar');
+    html.setAttribute('dir', 'rtl');
+    swapBootstrapForLang('ar');
+    applyTranslations();
     if (window.AOS) AOS.refresh();
   }
 
@@ -243,22 +254,9 @@
     if (!host || host.querySelector('.language-switch')) return;
     const wrap = document.createElement('div');
     wrap.className = 'language-switch btn-group';
-    wrap.innerHTML = `
-      <button type="button" class="btn btn-sm btn-outline-light" data-lang="ar">AR</button>
-      <button type="button" class="btn btn-sm btn-outline-light" data-lang="en">EN</button>
-    `;
+    wrap.innerHTML = '';
     host.appendChild(wrap);
-    const lang = localStorage.getItem('zt_lang') || 'ar';
-    const arBtn = wrap.querySelector('[data-lang="ar"]');
-    const enBtn = wrap.querySelector('[data-lang="en"]');
-    function sync(){
-      const current = localStorage.getItem('zt_lang') || 'ar';
-      [arBtn, enBtn].forEach(b=> b.classList.remove('active'));
-      (current==='ar'?arBtn:enBtn).classList.add('active');
-    }
-    arBtn.addEventListener('click', ()=>{ applyLang('ar'); sync(); });
-    enBtn.addEventListener('click', ()=>{ applyLang('en'); sync(); });
-    sync();
+    applyLang();
   }
 
   // Active link highlighting
@@ -341,7 +339,15 @@
   if (!grid) return false;
   const items = PRESET_SERVICES || [];
   if (!items.length) return false;
-  grid.innerHTML = items.map((s, idx)=>`
+  
+  // Separate professional cards (at the end) from regular cards
+  const regularServices = items.filter(s => !s.isProfessional);
+  const professionalServices = items.filter(s => s.isProfessional);
+  
+  let html = '';
+  
+  // Regular services as regular cards
+  html += regularServices.map((s, idx)=>`
     <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" ${idx%3?`data-aos-delay="${(idx%3)*50}"`:''}>
       <div class="service-card h-100" data-category="${(s.category||'general').toLowerCase()}">
         <div class="thumb">${(()=>{ const src = getServiceImageFor(s.title, idx); return src?`<img src="${src}" class="w-100" alt="${s.title}" loading="lazy">`:`<div class="ph w-100"></div>`; })()}<span class="badge rounded-pill badge-category badge-overlay">${(s.category||'general')}</span></div>
@@ -355,6 +361,24 @@
       </div>
     </div>
   `).join('');
+  
+  // Professional services as professional cards (at the end)
+  html += professionalServices.map((s, idx)=>`
+    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" ${idx?`data-aos-delay="${idx*50}"`:''}>
+      <div class="service-card-professional">
+        <div class="service-card-professional-icon">
+          <i class="fa-solid ${s.icon || 'fa-lightbulb'}"></i>
+        </div>
+        <div class="service-card-professional-content">
+          <h3 class="service-card-professional-title">${s.title}</h3>
+          <p class="service-card-professional-desc">${s.desc}</p>
+          <a href="contact.html" class="service-card-professional-btn">اطلب الخدمة</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  
+  grid.innerHTML = html;
   setupServicesFilter();
   if (window.AOS) AOS.refresh();
   return true;
@@ -371,10 +395,10 @@ function renderServicesFromManifest(){
       <div class="service-card h-100" data-category="general">
         <div class="thumb"><img src="${src}" class="w-100" alt="service ${idx+1}" loading="lazy"><span class="badge rounded-pill badge-category badge-overlay">general</span></div>
         <div class="p-3">
-          <h5 class="fw-bold">${lang==='en' ? `Service #${idx+1}` : `خدمة رقم ${idx+1}`}</h5>
-          <p class="text-muted">${lang==='en' ? 'Sample description from your media library.' : 'وصف تجريبي من مكتبة الوسائط لديك.'}</p>
+          <h5 class="fw-bold">خدمة رقم ${idx+1}</h5>
+          <p class="text-muted">وصف تجريبي من مكتبة الوسائط لديك.</p>
           <div class="d-flex justify-content-between align-items-center">
-            <a href="contact.html" class="btn btn-sm btn-gold">${lang==='en' ? 'Contact' : 'تواصل'}</a>
+            <a href="contact.html" class="btn btn-sm btn-gold">تواصل</a>
           </div>
         </div>
       </div>
@@ -433,33 +457,41 @@ function renderGalleryFromManifest(){
     return true;
   }
 
-  // Populate swipers from manifest (images only) before initializing Swiper
-  populateSwiperFromManifest('.projects-swiper');
-  populateSwiperFromManifest('.gallery-swiper');
+  // Initialize Swiper after DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing swipers');
+    
+    // Populate swipers from manifest (images only) before initializing Swiper
+    populateSwiperFromManifest('.projects-swiper');
+    populateSwiperFromManifest('.gallery-swiper');
+    
+    // Swiper for projects
+    if (typeof Swiper !== 'undefined' && document.querySelector('.projects-swiper')) {
+      console.log('Initializing projects swiper');
+      new Swiper('.projects-swiper', {
+        spaceBetween: 16,
+        loop: true,
+        autoplay: { delay: 3000, disableOnInteraction: false },
+        pagination: { el: '.projects-swiper .swiper-pagination', clickable: true },
+        navigation: { nextEl: '.projects-swiper .swiper-button-next', prevEl: '.projects-swiper .swiper-button-prev' },
+        breakpoints: { 0:{slidesPerView:1}, 576:{slidesPerView:2}, 992:{slidesPerView:3} }
+      });
+    } else {
+      console.log('Swiper not available or projects element not found');
+    }
 
-  // Swiper for projects
-  if (typeof Swiper !== 'undefined' && document.querySelector('.projects-swiper')) {
-    new Swiper('.projects-swiper', {
-      spaceBetween: 16,
-      loop: true,
-      autoplay: { delay: 3000, disableOnInteraction: false },
-      pagination: { el: '.projects-swiper .swiper-pagination', clickable: true },
-      navigation: { nextEl: '.projects-swiper .swiper-button-next', prevEl: '.projects-swiper .swiper-button-prev' },
-      breakpoints: { 0:{slidesPerView:1}, 576:{slidesPerView:2}, 992:{slidesPerView:3} }
-    });
-  }
-
-  // Swiper for gallery featured
-  if (typeof Swiper !== 'undefined' && document.querySelector('.gallery-swiper')) {
-    new Swiper('.gallery-swiper', {
-      spaceBetween: 16,
-      loop: true,
-      autoplay: { delay: 2500, disableOnInteraction: false },
-      pagination: { el: '.gallery-swiper .swiper-pagination', clickable: true },
-      navigation: { nextEl: '.gallery-swiper .swiper-button-next', prevEl: '.gallery-swiper .swiper-button-prev' },
-      breakpoints: { 0:{slidesPerView:1}, 576:{slidesPerView:2}, 992:{slidesPerView:3} }
-    });
-  }
+    // Swiper for gallery featured
+    if (typeof Swiper !== 'undefined' && document.querySelector('.gallery-swiper')) {
+      new Swiper('.gallery-swiper', {
+        spaceBetween: 16,
+        loop: true,
+        autoplay: { delay: 2500, disableOnInteraction: false },
+        pagination: { el: '.gallery-swiper .swiper-pagination', clickable: true },
+        navigation: { nextEl: '.gallery-swiper .swiper-button-next', prevEl: '.gallery-swiper .swiper-button-prev' },
+        breakpoints: { 0:{slidesPerView:1}, 576:{slidesPerView:2}, 992:{slidesPerView:3} }
+      });
+    }
+  });
 
   // Lightbox options (if present)
   if (window.lightbox) {
@@ -477,9 +509,15 @@ function renderGalleryFromManifest(){
     if (!grid) return false;
     const items = PRESET_SERVICES || [];
     if (!items.length) return false;
-    // Show first 6 services on home page
-    const displayItems = items.slice(0, 6);
-    grid.innerHTML = displayItems.map((s, idx)=>`
+    
+    // Show first 6 regular services + professional services on home page
+    const regularItems = items.filter(s => !s.isProfessional).slice(0, 6);
+    const professionalItems = items.filter(s => s.isProfessional);
+    
+    let html = '';
+    
+    // Regular services with professional design
+    html += regularItems.map((s, idx)=>`
       <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" ${idx%3?`data-aos-delay="${(idx%3)*50}"`:''}>
         <div class="service-card-pro h-100" data-category="${(s.category||'general').toLowerCase()}">
           <div class="service-card-pro-image">
@@ -496,6 +534,24 @@ function renderGalleryFromManifest(){
         </div>
       </div>
     `).join('');
+    
+    // Professional services cards
+    html += professionalItems.map((s, idx)=>`
+      <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" ${(idx+regularItems.length)%3?`data-aos-delay="${((idx+regularItems.length)%3)*50}"`:''}>
+        <div class="service-card-professional">
+          <div class="service-card-professional-icon">
+            <i class="fa-solid ${s.icon || 'fa-lightbulb'}"></i>
+          </div>
+          <div class="service-card-professional-content">
+            <h3 class="service-card-professional-title">${s.title}</h3>
+            <p class="service-card-professional-desc">${s.desc}</p>
+            <a href="services.html" class="service-card-professional-btn">اكتشف المزيد</a>
+          </div>
+        </div>
+      </div>
+    `).join('');
+    
+    grid.innerHTML = html;
     if (window.AOS) AOS.refresh();
     return true;
   }

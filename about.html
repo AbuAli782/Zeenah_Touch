@@ -15,29 +15,28 @@
   <script>try{const t=localStorage.getItem('zt_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Navbar (Unified across all pages) -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-        <img src="images/logo.png" alt="Zena Touch" width="36" height="36" onerror="this.style.display='none'">
+        <img src="images/IMG-20251114-WA0035.jpg" alt="Zena Touch" width="36" height="36" onerror="this.style.display='none'">
         <span class="fw-bold"><span class="text-gold">Zena</span> Touch</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
           <li class="nav-item"><a class="nav-link" href="services.html">الخدمات</a></li>
           <li class="nav-item"><a class="nav-link" href="gallery.html">المعرض</a></li>
           <li class="nav-item"><a class="nav-link active" href="about.html">من نحن</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">تواصل</a></li>
         </ul>
-        <div class="d-flex align-items-center gap-3">
-          <a class="btn btn-sm btn-outline-gold" href="admin-login.html"><i class="fa-solid fa-user-lock ms-1"></i> دخول الأدمن</a>
+        <div class="d-flex align-items-center gap-3 ms-3">
           <div class="form-check form-switch text-light m-0">
             <input class="form-check-input" type="checkbox" role="switch" id="themeToggle">
-            <label class="form-check-label" for="themeToggle"><i class="fa-solid fa-moon"></i></label>
+            <label class="form-check-label" for="themeToggle"><i class="fa-solid fa-moon theme-icon-light"></i><i class="fa-solid fa-sun theme-icon-dark" style="display:none;"></i></label>
           </div>
         </div>
       </div>
@@ -45,9 +44,9 @@
   </nav>
 
   <!-- Page header -->
-  <header class="hero-section d-flex align-items-center justify-content-center text-center" style="min-height:45vh;background-image:linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.6)), url('images/about.jpg');">
+  <header class="hero-section page-hero" style="background-image: linear-gradient(135deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,.3) 100%), url('images/about.jpg');">
     <div class="container" data-aos="fade-up">
-      <h1 class="display-6 fw-bold mb-2">من نحن</h1>
+      <h1 class="fw-bold">من نحن</h1>
       <p class="lead">رؤية واضحة لتجميل بيتك بلمسات ذهبية</p>
     </div>
   </header>
@@ -85,32 +84,6 @@
         </div>
       </div>
 
-      <div class="row g-4 mt-5">
-        <div class="col-6 col-lg-3" data-aos="fade-up">
-          <div class="metric-card p-4 text-center h-100">
-            <div class="value">7+</div>
-            <div class="text-muted">سنوات خبرة</div>
-          </div>
-        </div>
-        <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-          <div class="metric-card p-4 text-center h-100">
-            <div class="value">200+</div>
-            <div class="text-muted">مشاريع منجزة</div>
-          </div>
-        </div>
-        <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="150">
-          <div class="metric-card p-4 text-center h-100">
-            <div class="value">120+</div>
-            <div class="text-muted">عملاء سعداء</div>
-          </div>
-        </div>
-        <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-          <div class="metric-card p-4 text-center h-100">
-            <div class="value">4.9/5</div>
-            <div class="text-muted">تقييم الرضا</div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 

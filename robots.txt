@@ -1,0 +1,35 @@
+# Robots.txt for Zena Touch
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /services.html
+Allow: /gallery.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.php$
+Disallow: /*.asp$
+Disallow: /*.aspx$
+
+# Crawl delay
+Crawl-delay: 1
+
+# Sitemap
+Sitemap: https://zenatouchsa.com/sitemap.xml
+
+# Google Search Console
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Other search engines
+User-agent: *
+Allow: /

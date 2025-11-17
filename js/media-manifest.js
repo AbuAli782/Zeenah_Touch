@@ -26,8 +26,7 @@ window.ZT_MEDIA = {
     "images/IMG-20251114-WA0048.jpg",
     "images/IMG-20251114-WA0049.jpg",
     "images/IMG-20251114-WA0050.jpg",
-    "images/WhatsApp Image 2025-11-15 at 09.36.42_3adcc0d4.jpg",
-    "images/logo.jpg"
+    "images/WhatsApp Image 2025-11-15 at 09.36.42_3adcc0d4.jpg"
   ],
   videos: [
     "images/VID-20251114-WA0005.mp4",

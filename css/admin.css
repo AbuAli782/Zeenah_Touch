@@ -1,7 +1,0 @@
-/* Admin Panel styles */
-.admin-header { background: var(--surface); border-bottom: 1px solid var(--border); }
-.admin-brand { font-weight: 800; }
-.admin-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 1rem; box-shadow: var(--shadow); }
-.admin-nav .nav-link.active { background: var(--gold); color: #111 !important; }
-.table thead th { background: var(--surface); }
-.form-help { color: var(--muted); font-size: .85rem; }

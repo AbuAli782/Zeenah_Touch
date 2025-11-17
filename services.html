@@ -15,29 +15,28 @@
   <script>try{const t=localStorage.getItem('zt_theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Navbar (Unified across all pages) -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-        <img src="images/logo.png" alt="Zena Touch" width="36" height="36" onerror="this.style.display='none'">
+        <img src="images/IMG-20251114-WA0035.jpg" alt="Zena Touch" width="36" height="36" onerror="this.style.display='none'">
         <span class="fw-bold"><span class="text-gold">Zena</span> Touch</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
           <li class="nav-item"><a class="nav-link active" href="services.html">الخدمات</a></li>
           <li class="nav-item"><a class="nav-link" href="gallery.html">المعرض</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">من نحن</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">تواصل</a></li>
         </ul>
-        <div class="d-flex align-items-center gap-3">
-          <a class="btn btn-sm btn-outline-gold" href="admin-login.html"><i class="fa-solid fa-user-lock ms-1"></i> دخول الأدمن</a>
+        <div class="d-flex align-items-center gap-3 ms-3">
           <div class="form-check form-switch text-light m-0">
             <input class="form-check-input" type="checkbox" role="switch" id="themeToggle">
-            <label class="form-check-label" for="themeToggle"><i class="fa-solid fa-moon"></i></label>
+            <label class="form-check-label" for="themeToggle"><i class="fa-solid fa-moon theme-icon-light"></i><i class="fa-solid fa-sun theme-icon-dark" style="display:none;"></i></label>
           </div>
         </div>
       </div>
@@ -45,149 +44,107 @@
   </nav>
 
   <!-- Page header -->
-  <header class="hero-section d-flex align-items-center justify-content-center text-center" style="min-height:45vh;background-image:linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.6)), url('images/hero.jpg');">
+  <header class="hero-section page-hero" style="background-image: linear-gradient(135deg, rgba(0,0,0,.5) 0%, rgba(0,0,0,.3) 100%), url('images/hero.jpg');">
     <div class="container" data-aos="fade-up">
-      <h1 class="display-6 fw-bold mb-2">خدماتنا</h1>
+      <h1 class="fw-bold">خدماتنا</h1>
       <p class="lead">حلول متكاملة لزينة المنازل والإضاءة باحترافية عالية</p>
     </div>
   </header>
 
-  <!-- Filters -->
+  
+
+  <!-- Services Section -->
   <section class="section-padding bg-body">
     <div class="container">
-      <div id="servicesFilters" class="d-flex flex-wrap gap-2 justify-content-center filter-btns mb-4" data-aos="fade-up">
-        <button class="btn btn-outline-gold btn-sm" data-filter="all">الكل</button>
-        <button class="btn btn-outline-gold btn-sm" data-filter="lighting">إضاءة</button>
-        <button class="btn btn-outline-gold btn-sm" data-filter="curtains">ستائر</button>
-        <button class="btn btn-outline-gold btn-sm" data-filter="wallpaper">ورق جدران</button>
-        <button class="btn btn-outline-gold btn-sm" data-filter="installation">تركيب وصيانة</button>
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title">خدماتنا</h2>
+        <p class="section-subtitle">باقة متكاملة من الحلول المتخصصة</p>
       </div>
-
       <div id="servicesGrid" class="row g-4">
-        <!-- Service card template -->
-        <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up">
-          <div class="service-card h-100" data-category="lighting">
-            <div class="thumb"><img src="images/services/s1.jpg" class="w-100" alt="إضاءة داخلية"></div>
-            <div class="p-3">
-              <h5 class="fw-bold">إضاءة داخلية</h5>
-              <p class="text-muted">تصاميم وإضاءات حديثة لمختلف المساحات مع توفير الطاقة.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="badge rounded-pill badge-category">lighting</span>
-                <a href="contact.html" class="btn btn-sm btn-gold">تواصل</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
-          <div class="service-card h-100" data-category="lighting">
-            <div class="thumb"><img src="images/services/s2.jpg" class="w-100" alt="إضاءة خارجية"></div>
-            <div class="p-3">
-              <h5 class="fw-bold">إضاءة خارجية</h5>
-              <p class="text-muted">حلول مقاومة للعوامل الجوية مع توزيع ضوئي متوازن.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="badge rounded-pill badge-category">lighting</span>
-                <a href="contact.html" class="btn btn-sm btn-gold">تواصل</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-card h-100" data-category="curtains" id="curtains">
-            <div class="thumb"><img src="images/services/s3.jpg" class="w-100" alt="ستائر فاخرة"></div>
-            <div class="p-3">
-              <h5 class="fw-bold">ستائر فاخرة</h5>
-              <p class="text-muted">تفصيل ستائر بمقاسات دقيقة وخامات راقية.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="badge rounded-pill badge-category">curtains</span>
-                <a href="contact.html" class="btn btn-sm btn-gold">تواصل</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up">
-          <div class="service-card h-100" data-category="wallpaper" id="wallpaper">
-            <div class="thumb"><img src="images/services/s4.jpg" class="w-100" alt="ورق جدران"></div>
-            <div class="p-3">
-              <h5 class="fw-bold">ورق جدران</h5>
-              <p class="text-muted">نقوش عصرية وكلاسيكية مع تركيب متقن يدوم.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="badge rounded-pill badge-category">wallpaper</span>
-                <a href="contact.html" class="btn btn-sm btn-gold">تواصل</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="50">
-          <div class="service-card h-100" data-category="installation" id="installation">
-            <div class="thumb"><img src="images/services/s5.jpg" class="w-100" alt="تركيب وصيانة"></div>
-            <div class="p-3">
-              <h5 class="fw-bold">تركيب وصيانة</h5>
-              <p class="text-muted">فنيّون محترفون يضمنون التثبيت والصيانة المثالية.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="badge rounded-pill badge-category">installation</span>
-                <a href="contact.html" class="btn btn-sm btn-gold">تواصل</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="service-card h-100" data-category="curtains">
-            <div class="thumb"><img src="images/services/s6.jpg" class="w-100" alt="مفروشات"></div>
-            <div class="p-3">
-              <h5 class="fw-bold">مفروشات</h5>
-              <p class="text-muted">تشكيلات متنوعة تمنح منزلك طابعًا فريدًا.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="badge rounded-pill badge-category">curtains</span>
-                <a href="contact.html" class="btn btn-sm btn-gold">تواصل</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Services will be populated by app.js -->
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer py-5 bg-dark text-light">
+  <!-- Footer (Unified) -->
+  <footer class="footer py-5 bg-dark text-light position-relative overflow-hidden">
     <div class="container">
       <div class="row g-4">
         <div class="col-md-4">
-          <h5 class="mb-3">زينه تاتش – Zena Touch</h5>
-          <p class="text-muted">لمسات فاخرة لمنزلك مع فريق محترف وخدمة موثوقة.</p>
+          <h5 class="mb-3 footer-brand">زينه تاتش – Zena Touch</h5>
+          <p class="text-muted footer-desc">لمسات فاخرة لمنزلك مع فريق محترف وخدمة موثوقة.</p>
+          <div class="footer-logo-wrapper mt-3">
+            <img src="images/IMG-20251114-WA0035.jpg" alt="Zena Touch" class="footer-logo" onerror="this.style.display='none'">
+          </div>
         </div>
         <div class="col-md-4">
-          <h6 class="text-gold">روابط</h6>
-          <ul class="list-unstyled">
-            <li><a class="text-decoration-none text-light-50" href="services.html">الخدمات</a></li>
-            <li><a class="text-decoration-none text-light-50" href="gallery.html">المعرض</a></li>
-            <li><a class="text-decoration-none text-light-50" href="about.html">من نحن</a></li>
-            <li><a class="text-decoration-none text-light-50" href="contact.html">تواصل</a></li>
+          <h6 class="text-gold footer-links-title">روابط سريعة</h6>
+          <ul class="list-unstyled footer-links">
+            <li><a class="footer-link" href="services.html"><i class="fa-solid fa-chevron-left ms-2"></i>الخدمات</a></li>
+            <li><a class="footer-link" href="gallery.html"><i class="fa-solid fa-chevron-left ms-2"></i>المعرض</a></li>
+            <li><a class="footer-link" href="about.html"><i class="fa-solid fa-chevron-left ms-2"></i>من نحن</a></li>
+            <li><a class="footer-link" href="contact.html"><i class="fa-solid fa-chevron-left ms-2"></i>تواصل</a></li>
           </ul>
         </div>
         <div class="col-md-4">
-          <h6 class="text-gold">تواصل</h6>
-          <ul class="list-unstyled small">
-            <li><i class="fa-solid fa-phone ms-2 text-gold"></i> <a id="footerPhone" class="text-decoration-none text-light" href="tel:+966551234567">+966 55 123 4567</a></li>
-            <li><i class="fa-solid fa-location-dot ms-2 text-gold"></i> <span id="footerAddress">الرياض، المملكة العربية السعودية</span></li>
-            <li><i class="fa-brands fa-whatsapp ms-2 text-gold"></i> <a id="footerWhatsapp" class="text-decoration-none text-light" href="https://wa.me/966551234567" target="_blank">واتساب مباشر</a></li>
+          <h6 class="text-gold footer-contact-title">تواصل معنا</h6>
+          <ul class="list-unstyled small footer-contact">
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-phone footer-contact-icon"></i> 
+              <a id="footerPhone" class="footer-contact-link" href="tel:+966551234567">+966 55 123 4567</a>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-solid fa-location-dot footer-contact-icon"></i> 
+              <span id="footerAddress" class="footer-contact-text">الرياض، المملكة العربية السعودية</span>
+            </li>
+            <li class="footer-contact-item">
+              <i class="fa-brands fa-whatsapp footer-contact-icon"></i> 
+              <a id="footerWhatsapp" class="footer-contact-link" href="https://wa.me/966551234567" target="_blank">واتساب مباشر</a>
+            </li>
           </ul>
         </div>
       </div>
-      <div class="d-flex justify-content-between align-items-center pt-4 mt-4 border-top border-secondary">
-        <p class="m-0 small text-light-50">© <span id="year"></span> Zena Touch. جميع الحقوق محفوظة.</p>
-        <div class="d-flex gap-3">
-          <a href="#" class="text-light-50"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" class="text-light-50"><i class="fa-brands fa-snapchat"></i></a>
-          <a href="#" class="text-light-50"><i class="fa-brands fa-x-twitter"></i></a>
+      <div class="d-flex justify-content-between align-items-center pt-4 mt-4 border-top border-secondary footer-bottom">
+        <p class="m-0 small footer-copyright">© <span id="year"></span> Zena Touch. جميع الحقوق محفوظة.</p>
+        <div class="d-flex gap-3 footer-social">
+          <a href="#" class="footer-social-link" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Snapchat">
+            <i class="fa-brands fa-snapchat"></i>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="Twitter">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
         </div>
       </div>
     </div>
+    
+    <!-- Footer decorative elements -->
+    <div class="footer-decoration">
+      <div class="footer-circle footer-circle-1"></div>
+      <div class="footer-circle footer-circle-2"></div>
+      <div class="footer-circle footer-circle-3"></div>
+    </div>
   </footer>
 
-  <!-- WhatsApp Floating -->
-  <a href="https://wa.me/966551234567" target="_blank" class="whatsapp-float" aria-label="تواصل واتساب"><i class="fa-brands fa-whatsapp"></i></a>
-  <!-- Call Now Floating -->
-  <a href="tel:+966551234567" class="call-float" aria-label="اتصل الآن"><i class="fa-solid fa-phone"></i></a>
+  <!-- Enhanced WhatsApp Floating -->
+  <a href="https://wa.me/966551234567" target="_blank" class="whatsapp-float-enhanced" aria-label="تواصل واتساب">
+    <div class="float-icon-wrapper">
+      <i class="fa-brands fa-whatsapp"></i>
+      <div class="float-pulse"></div>
+    </div>
+    <div class="float-tooltip">تواصل معنا على واتساب</div>
+  </a>
+  
+  <!-- Enhanced Call Now Floating -->
+  <a href="tel:+966551234567" class="call-float-enhanced" aria-label="اتصل الآن">
+    <div class="float-icon-wrapper">
+      <i class="fa-solid fa-phone"></i>
+      <div class="float-pulse"></div>
+    </div>
+    <div class="float-tooltip">اتصل بنا الآن</div>
+  </a>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
