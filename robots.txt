@@ -1,4 +1,7 @@
-# Robots.txt for Zena Touch
+# Zena Touch - SEO Optimized Robots.txt
+# Last Updated: 2025-11-18
+
+# Default rules for all search engines
 User-agent: *
 Allow: /
 Allow: /index.html
@@ -9,27 +12,54 @@ Allow: /contact.html
 Allow: /css/
 Allow: /js/
 Allow: /images/
+Allow: /sitemap.xml
+Allow: /robots.txt
 
+# Disallow sensitive directories
 Disallow: /admin/
 Disallow: /private/
+Disallow: /temp/
+Disallow: /cache/
 Disallow: /*.php$
 Disallow: /*.asp$
 Disallow: /*.aspx$
+Disallow: /*.jsp$
+Disallow: /*.cgi$
 
-# Crawl delay
+# Disallow specific files
+Disallow: /config.php
+Disallow: /database.php
+Disallow: /.htaccess
+Disallow: /.env
+
+# Crawl delay (in seconds)
 Crawl-delay: 1
-
-# Sitemap
-Sitemap: https://zenatouchsa.com/sitemap.xml
+Request-rate: 1/1s
 
 # Google Search Console
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
-# Bing
+# Bing Search Engine
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
-# Other search engines
-User-agent: *
+# Yandex
+User-agent: Yandexbot
 Allow: /
+Crawl-delay: 1
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+# Sitemap URLs (Primary Domain)
+Sitemap: https://zenatouchsa.com/sitemap.xml
+Sitemap: https://abuali782.github.io/Zeenah_Touch/sitemap.xml
+
+# Additional sitemaps if needed
+# Sitemap: https://zenatouchsa.com/sitemap-pages.xml
+# Sitemap: https://zenatouchsa.com/sitemap-images.xml

@@ -1,4 +1,6 @@
-# Enable GZIP Compression
+# ============================================================================
+# GZIP COMPRESSION - تقليل حجم الملفات
+# ============================================================================
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html
   AddOutputFilterByType DEFLATE text/plain
@@ -13,6 +15,11 @@
   AddOutputFilterByType DEFLATE application/x-font-ttf
   AddOutputFilterByType DEFLATE font/opentype
   AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/ld+json
+  
+  # Exclude already compressed files
+  SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|rar|zip)$ no-gzip dont-vary
 </IfModule>
 
 # Browser Caching
@@ -86,3 +93,63 @@ Options -Indexes
   Order allow,deny
   Deny from all
 </FilesMatch>
+
+# ============================================================================
+# SEO OPTIMIZATION - تحسينات محرك البحث
+# ============================================================================
+
+# Add UTF-8 charset
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .xml .json .rss .atom
+
+# Set proper MIME types
+AddType application/json .json
+AddType application/ld+json .jsonld
+AddType application/xml .xml
+AddType application/rss+xml .rss
+AddType application/atom+xml .atom
+AddType text/plain .txt
+AddType text/html .html
+AddType text/css .css
+AddType application/javascript .js
+
+# ============================================================================
+# SEO HEADERS - رؤوس تحسين محركات البحث
+# ============================================================================
+<IfModule mod_headers.c>
+  # Canonical header (helps with duplicate content)
+  Header set Link "<https://zenatouchsa.com>; rel=\"canonical\""
+  
+  # Open Graph headers for social sharing
+  Header set X-UA-Compatible "IE=edge"
+  
+  # Cache control headers
+  Header set Cache-Control "public, max-age=31536000" "expr=%{CONTENT_TYPE} =~ m#image#"
+  Header set Cache-Control "public, max-age=2592000" "expr=%{CONTENT_TYPE} =~ m#(css|javascript)#"
+  Header set Cache-Control "public, max-age=604800" "expr=%{CONTENT_TYPE} =~ m#text/html#"
+</IfModule>
+
+# ============================================================================
+# PERFORMANCE OPTIMIZATION - تحسينات الأداء
+# ============================================================================
+
+# Enable ETags for caching
+FileETag MTime Size
+
+# Reduce server overhead by enabling KeepAlive
+<IfModule mod_http2.c>
+  Protocols h2 http/1.1
+</IfModule>
+
+# ============================================================================
+# REDIRECT RULES - قواعس إعادة التوجيه
+# ============================================================================
+<IfModule mod_rewrite.c>
+  # Redirect old URLs if needed
+  # RewriteRule ^old-page\.html$ new-page.html [R=301,L]
+  
+  # Redirect trailing slash for non-files
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+</IfModule>

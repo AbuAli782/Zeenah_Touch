@@ -5,12 +5,17 @@
   <meta name="google-site-verification" content="ETng7mk3CHQ9kH8yot7gxO4Ne_DPakGmArV0EEabB8g" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes">
   <meta name="description" content="زينه تاتش – Zena Touch | متخصصون في زينة المنازل والإضاءة الحديثة. جودة عالية، تركيب احترافي، ضمان شامل، استشارات مجانية. الرياض، المملكة العربية السعودية.">
-  <meta name="keywords" content="زينة منازل، إضاءة، ديكور، تصميم إضاءة، زينة الرياض، تركيب احترافي، إضاءة حديثة">
+  <meta name="keywords" content="زينة منازل، إضاءة، ديكور، تصميم إضاءة، زينة الرياض، تركيب احترافي، إضاءة حديثة، ستائر، ورق جدران، إضاءة المناسبات">
   <meta name="author" content="Zena Touch">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="language" content="ar">
   <meta name="revisit-after" content="7 days">
   <meta name="theme-color" content="#d4af37">
+  <meta name="format-detection" content="telephone=+966551234567">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-TileColor" content="#d4af37">
+  <meta name="msapplication-config" content="browserconfig.xml">
   <title>زينه تاتش – Zena Touch | زينة المنازل والإضاءة الحديثة | الرياض</title>
   <link rel="icon" href="images/IMG-20251114-WA0035.jpg">
   <link rel="canonical" href="https://zenatouchsa.com/">
@@ -70,15 +75,18 @@
     try { const t = localStorage.getItem('zt_theme') || 'light'; document.documentElement.setAttribute('data-theme', t);} catch(e) {}
   </script>
 
-  <!-- Schema.org Structured Data -->
+  <!-- Schema.org Structured Data - Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://zenatouchsa.com",
     "name": "Zena Touch - زينه تاتش",
-    "description": "متخصصون في زينة المنازل والإضاءة الحديثة",
+    "alternateName": "زينه تاتش",
+    "description": "متخصصون في زينة المنازل والإضاءة الحديثة بجودة عالية وتركيب احترافي",
     "url": "https://zenatouchsa.com",
     "telephone": "+966551234567",
+    "email": "info@zenatouchsa.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "الرياض",
@@ -87,24 +95,88 @@
       "postalCode": "12345",
       "addressCountry": "SA"
     },
-    "image": "https://zenatouchsa.com/images/IMG-20251114-WA0035.jpg",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://zenatouchsa.com/images/IMG-20251114-WA0035.jpg",
+      "width": 300,
+      "height": 300
+    },
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://zenatouchsa.com/images/IMG-20251114-WA0035.jpg",
+      "width": 300,
+      "height": 300
+    },
     "priceRange": "$$",
     "sameAs": [
       "https://www.instagram.com/zenatouchsa",
       "https://www.snapchat.com/add/zenatouchsa",
-      "https://twitter.com/zenatouchsa"
+      "https://twitter.com/zenatouchsa",
+      "https://www.facebook.com/zenatouchsa"
     ],
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "09:00",
-      "closes": "21:00"
-    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "21:00"
+      }
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "ratingCount": "120"
+      "ratingCount": "120",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "الرياض"
+    },
+    "serviceArea": {
+      "@type": "City",
+      "name": "الرياض"
     }
+  }
+  </script>
+
+  <!-- Schema.org Structured Data - BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "الرئيسية",
+        "item": "https://zenatouchsa.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "الخدمات",
+        "item": "https://zenatouchsa.com/services.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "المعرض",
+        "item": "https://zenatouchsa.com/gallery.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "من نحن",
+        "item": "https://zenatouchsa.com/about.html"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "تواصل معنا",
+        "item": "https://zenatouchsa.com/contact.html"
+      }
+    ]
   }
   </script>
 
