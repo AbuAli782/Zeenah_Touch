@@ -55,7 +55,7 @@
 # Enable mod_rewrite
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
+  RewriteBase /Zeenah_Touch/
   
   # Remove .html extension
   RewriteCond %{REQUEST_FILENAME} !-f
@@ -118,7 +118,7 @@ AddType application/javascript .js
 # ============================================================================
 <IfModule mod_headers.c>
   # Canonical header (helps with duplicate content)
-  Header set Link "<https://zenatouchsa.com>; rel=\"canonical\""
+  Header set Link "<https://abuali782.github.io/Zeenah_Touch/>; rel=\"canonical\""
   
   # Open Graph headers for social sharing
   Header set X-UA-Compatible "IE=edge"

@@ -2,17 +2,18 @@
 // Enables offline support and caching strategies
 
 const CACHE_NAME = 'zena-touch-v1.1.0';
+const BASE_PATH = '/Zeenah_Touch/';
 const URLS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/services.html',
-  '/gallery.html',
-  '/about.html',
-  '/contact.html',
-  '/css/style.css',
-  '/js/app.js',
-  '/js/media-manifest.js',
-  '/manifest.json'
+  BASE_PATH,
+  BASE_PATH + 'index.html',
+  BASE_PATH + 'services.html',
+  BASE_PATH + 'gallery.html',
+  BASE_PATH + 'about.html',
+  BASE_PATH + 'contact.html',
+  BASE_PATH + 'css/style.css',
+  BASE_PATH + 'js/app.js',
+  BASE_PATH + 'js/media-manifest.js',
+  BASE_PATH + 'manifest.json'
 ];
 
 // Install event - cache essential files
