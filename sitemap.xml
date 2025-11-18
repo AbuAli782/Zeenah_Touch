@@ -2,42 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-  <!-- Sitemap generated for Zena Touch -->
-  
-  <url>
-    <loc>https://abuali782.github.io/Zeenah_Touch/</loc>
-    <lastmod>2025-11-17T21:40:00+03:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.00</priority>
-  </url>
-  
-  <url>
-    <loc>https://abuali782.github.io/Zeenah_Touch/services.html</loc>
-    <lastmod>2025-11-17T21:40:00+03:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  
-  <url>
-    <loc>https://abuali782.github.io/Zeenah_Touch/gallery.html</loc>
-    <lastmod>2025-11-17T21:40:00+03:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  
-  <url>
-    <loc>https://abuali782.github.io/Zeenah_Touch/about.html</loc>
-    <lastmod>2025-11-17T21:40:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  
-  <url>
-    <loc>https://abuali782.github.io/Zeenah_Touch/contact.html</loc>
-    <lastmod>2025-11-17T21:40:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<!-- Zena Touch - Sitemap Updated: 2025-11-18 -->
+
+<!-- Home Page -->
+<url>
+  <loc>https://zenatouchsa.com/</loc>
+  <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.00</priority>
+</url>
+
+<!-- Services Page -->
+<url>
+  <loc>https://zenatouchsa.com/services.html</loc>
+  <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+
+<!-- Gallery Page -->
+<url>
+  <loc>https://zenatouchsa.com/gallery.html</loc>
+  <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<!-- About Page -->
+<url>
+  <loc>https://zenatouchsa.com/about.html</loc>
+  <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+
+<!-- Contact Page -->
+<url>
+  <loc>https://zenatouchsa.com/contact.html</loc>
+  <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
+
+<!-- Category Sections -->
+<url>
+  <loc>https://zenatouchsa.com/#decoration-gallery</loc>
+  <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.75</priority>
+</url>
+
+<url>
+  <loc>https://zenatouchsa.com/#electricity-gallery</loc>
+  <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.75</priority>
+</url>
+
+<url>
+  <loc>https://zenatouchsa.com/#plumbing-gallery</loc>
+  <lastmod>2025-11-18T00:00:00+03:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.75</priority>
+</url>
+
 </urlset>

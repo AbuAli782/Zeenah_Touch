@@ -56,7 +56,7 @@ User-agent: Baiduspider
 Allow: /
 Crawl-delay: 1
 
-# Sitemap URLs (Primary Domain)
+# Sitemap URLs
 Sitemap: https://zenatouchsa.com/sitemap.xml
 Sitemap: https://abuali782.github.io/Zeenah_Touch/sitemap.xml
 
