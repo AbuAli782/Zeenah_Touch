@@ -187,6 +187,7 @@ const CONTACT_INFO = {
 - 📞 الهاتف: +966 55 123 4567
 - 💬 WhatsApp: +966 55 123 4567
 - 📧 البريد الإلكتروني: info@zenatouchsa.com
+- 🌐 الموقع: https://abuali782.github.io/Zeenah_Touch/
 
 ---
 

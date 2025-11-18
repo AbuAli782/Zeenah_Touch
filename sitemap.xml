@@ -8,7 +8,7 @@
 
 <!-- Home Page -->
 <url>
-  <loc>https://zenatouchsa.com/</loc>
+  <loc>https://abuali782.github.io/Zeenah_Touch/</loc>
   <lastmod>2025-11-18T00:00:00+03:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>1.00</priority>
@@ -16,7 +16,7 @@
 
 <!-- Services Page -->
 <url>
-  <loc>https://zenatouchsa.com/services.html</loc>
+  <loc>https://abuali782.github.io/Zeenah_Touch/services.html</loc>
   <lastmod>2025-11-18T00:00:00+03:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.90</priority>
@@ -24,7 +24,7 @@
 
 <!-- Gallery Page -->
 <url>
-  <loc>https://zenatouchsa.com/gallery.html</loc>
+  <loc>https://abuali782.github.io/Zeenah_Touch/gallery.html</loc>
   <lastmod>2025-11-18T00:00:00+03:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.85</priority>
@@ -32,7 +32,7 @@
 
 <!-- About Page -->
 <url>
-  <loc>https://zenatouchsa.com/about.html</loc>
+  <loc>https://abuali782.github.io/Zeenah_Touch/about.html</loc>
   <lastmod>2025-11-18T00:00:00+03:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.80</priority>
@@ -40,7 +40,7 @@
 
 <!-- Contact Page -->
 <url>
-  <loc>https://zenatouchsa.com/contact.html</loc>
+  <loc>https://abuali782.github.io/Zeenah_Touch/contact.html</loc>
   <lastmod>2025-11-18T00:00:00+03:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.80</priority>
@@ -48,21 +48,21 @@
 
 <!-- Category Sections -->
 <url>
-  <loc>https://zenatouchsa.com/#decoration-gallery</loc>
+  <loc>https://abuali782.github.io/Zeenah_Touch/#decoration-gallery</loc>
   <lastmod>2025-11-18T00:00:00+03:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.75</priority>
 </url>
 
 <url>
-  <loc>https://zenatouchsa.com/#electricity-gallery</loc>
+  <loc>https://abuali782.github.io/Zeenah_Touch/#electricity-gallery</loc>
   <lastmod>2025-11-18T00:00:00+03:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.75</priority>
 </url>
 
 <url>
-  <loc>https://zenatouchsa.com/#plumbing-gallery</loc>
+  <loc>https://abuali782.github.io/Zeenah_Touch/#plumbing-gallery</loc>
   <lastmod>2025-11-18T00:00:00+03:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.75</priority>
