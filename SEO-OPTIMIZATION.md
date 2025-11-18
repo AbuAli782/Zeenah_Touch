@@ -111,7 +111,7 @@
 <meta name="revisit-after" content="7 days">
 <meta name="theme-color" content="#d4af37">
 <meta name="format-detection" content="telephone=+966551234567">
-<link rel="canonical" href="https://zenatouchsa.com/">
+<link rel="canonical" href="https://abuali782.github.io/Zeenah_Touch/">
 ```
 
 #### Social Meta Tags
@@ -119,7 +119,7 @@
 <meta property="og:title" content="...">
 <meta property="og:description" content="...">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://zenatouchsa.com/">
+<meta property="og:url" content="https://abuali782.github.io/Zeenah_Touch/">
 <meta property="og:image" content="...">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="...">
@@ -138,7 +138,7 @@
   "@type": "LocalBusiness",
   "name": "Zena Touch - زينه تاتش",
   "description": "...",
-  "url": "https://zenatouchsa.com",
+  "url": "https://abuali782.github.io/Zeenah_Touch",
   "telephone": "+966551234567",
   "address": {...},
   "image": {...},

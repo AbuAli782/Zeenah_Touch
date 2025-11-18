@@ -36,7 +36,7 @@ git push origin main
 ### الخطوة 4: ربط النطاق المخصص (اختياري)
 1. في إعدادات GitHub Pages
 2. أضف النطاق في حقل "Custom domain"
-3. أدخل: `zenatouchsa.com`
+3. أدخل: `abuali782.github.io/Zeenah_Touch`
 4. تحديث إعدادات DNS عند مزود النطاق
 
 ---
@@ -56,7 +56,7 @@ git push origin main
 
 ### الخطوة 3: تكوين النطاق
 1. اذهب إلى "Domain settings"
-2. أضف النطاق المخصص `zenatouchsa.com`
+2. أضف النطاق المخصص `abuali782.github.io/Zeenah_Touch`
 3. حدّث إعدادات DNS
 
 ---
@@ -107,7 +107,7 @@ git push origin main
 ```nginx
 server {
     listen 443 ssl http2;
-    server_name zenatouchsa.com www.zenatouchsa.com;
+    server_name abuali782.github.io/Zeenah_Touch www.abuali782.github.io/Zeenah_Touch;
     
     root /var/www/zenatouchsa;
     index index.html;
@@ -140,7 +140,7 @@ server {
 # Redirect HTTP to HTTPS
 server {
     listen 80;
-    server_name zenatouchsa.com www.zenatouchsa.com;
+    server_name abuali782.github.io/Zeenah_Touch www.abuali782.github.io/Zeenah_Touch;
     return 301 https://$server_name$request_uri;
 }
 ```

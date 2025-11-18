@@ -7,7 +7,7 @@
 
 ## 📝 ملخص التحديثات
 
-تم تحديث جميع روابط الموقع من `zenatouchsa.com` إلى `abuali782.github.io/Zeenah_Touch/`
+تم تحديث جميع روابط الموقع من `abuali782.github.io/Zeenah_Touch` إلى `abuali782.github.io/Zeenah_Touch/`
 
 ---
 
